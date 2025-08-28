@@ -44,3 +44,38 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+-------------------------------------------------------------------
+UPPGIFT:
+
+Bygga ett online-forum där användare kan:
+
+* Skapa trådar (threads) av olika kategorier (THREAD eller QNA)
+* Skriva kommentarer på trådar
+* Se en lista över alla trådar med grundläggande info
+* Se detaljerad vy av en tråd med dess kommentarer
+* Spara all data (trådar och kommentarer) i LocalStorage eller en databas så att det finns kvar vid
+omladdning
+
+Allt ska byggas i React med TypeScript, där alla komponenter och data ska vara korrekt typade utan att använda "any". Designen ska vara enkel och tydlig, men funktionaliteten är viktigast.
+
+
+UPPDELNING:
+
+Trådshantering (Threads):
+* Skapa och visa lista över trådar
+* Skapa ny tråd (formulär)
+* Visa detaljerad vy av en tråd (titel, beskrivning, kategori, skapare, datum)
+* Typning av trådar och hantering av QNA-trådar
+
+Kommentarshantering (Comments):
+* Skapa kommentarer på specifik tråd
+* Visa kommentarer under tråddetaljvyn
+* Typning av kommentarer
+* Koppla kommentarer till rätt tråd
+
+Datahantering och UI:
+* Spara och läsa trådar och kommentarer från LocalStorage (eller databas)
+* Hantera global state (t.ex. med Context API eller annan state management)
+* UI-komponenter (kort, listor, formulär) och eventuella UI-bibliotek
+* Navigering mellan vyer (t.ex. React Router)
