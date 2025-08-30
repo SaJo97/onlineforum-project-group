@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import { useThread } from "../context/threadContext";
 
 type ThreadFormProps = {
-  currentUser:  User;
+  currentUser: User;
   onCancel: () => void;
   onCreateSuccess?: () => void;
-}
-const CreateThread = ({currentUser, onCancel, onCreateSuccess}: ThreadFormProps) => {
-  const {createThread} = useThread();
+};
+const CreateThread = ({
+  currentUser,
+  onCancel,
+  onCreateSuccess,
+}: ThreadFormProps) => {
+  const { createThread } = useThread();
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState<ThreadCategory>("THREAD");
   const [description, setDescription] = useState("");
@@ -17,6 +21,7 @@ const CreateThread = ({currentUser, onCancel, onCreateSuccess}: ThreadFormProps)
       alert("Titel och beskrivning krävs");
       return;
     }
+    //Skapelse av ny Tråd som anropar createThread från threadContext
     const _newThread: Thread = {
       id: Date.now(),
       title: title.trim(),
@@ -25,12 +30,12 @@ const CreateThread = ({currentUser, onCancel, onCreateSuccess}: ThreadFormProps)
       description: description.trim(),
       creator: currentUser,
     };
-    createThread(_newThread)
+    createThread(_newThread);
     if (onCreateSuccess) {
       onCreateSuccess();
     }
   }
-return (
+  return (
     <form className="create-thread" onSubmit={handleSubmit}>
       <h2>Skapa ny tråd</h2>
       <label>
@@ -45,12 +50,15 @@ return (
       </label>
       <label>
         Kategori:
-        <select value={category} onChange={(e) => setCategory(e.target.value as ThreadCategory)}>
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value as ThreadCategory)}
+        >
           <option value="THREAD">Tråd</option>
           <option value="QNA">Fråga & Svar</option>
         </select>
       </label>
-<label>
+      <label>
         Beskrivning:
         <textarea
           value={description}
@@ -62,7 +70,9 @@ return (
       </label>
       <div className="buttons">
         <button type="submit">Skapa</button>
-        <button type="button" onClick={onCancel}>Avbryt</button>
+        <button type="button" onClick={onCancel}>
+          Avbryt
+        </button>
       </div>
     </form>
   );

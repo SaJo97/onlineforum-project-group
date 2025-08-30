@@ -4,3 +4,93 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.App {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  background: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #b7d0d3ff;
+}
+
+.navbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.navbar-header h1 {
+  margin: 0;
+  color: #0077cc;
+}
+
+.navbar-btn {
+  padding: 0.5rem 1rem;
+  background: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.navbar-header button:hover {
+  background: #005fa3;
+}
+
+.create-thread {
+  background: #f0f4f8;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #ccc;
+  max-width: 600px;
+}
+
+.create-thread label{
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.create-thread input[type="text"],
+.create-thread select,
+.create-thread textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+.buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.buttons button[type="submit"] {
+  background: #0077cc;
+  color: white;
+}
+.buttons button[type="submit"]:hover {
+  background: #005fa3;
+}
+.buttons button[type="button"] {
+  background: #ccc;
+}
+.buttons button[type="button"]:hover {
+  background: #aaa;
+}

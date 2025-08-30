@@ -1,12 +1,31 @@
-import React from 'react';
-import './App.css';
+import "./App.css";
+import { createBrowserRouter } from "react-router";
+import ThreadAction from "./pages/ThreadAction";
+import ThreadDetailPage from "./pages/ThreadDetailPage";
+import Thread from "./pages/Thread";
+import NotFound from "./utils/NotFound";
+import RootLayout from "./layout/RootLayout";
 
-function App() {
-  return ( //Första sida visar alla Threads - Skapa Tråd -> en sida - Trycka på en Tråd -> detaljerad tråd sida där man kan kommentera
-    <div className="App"> 
-      
-    </div>
-  );
-}
-
-export default App;
+export const router = createBrowserRouter([
+  {
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: <Thread />,
+      },
+      {
+        path: "createThread",
+        element: <ThreadAction />,
+      },
+      {
+        path: "thread/:id",
+        element: <ThreadDetailPage />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+    ],
+  },
+]);
