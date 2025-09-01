@@ -4,6 +4,7 @@ import { router } from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThreadProvider } from './context/threadContext';
 import { RouterProvider } from 'react-router';
+import { CommentProvider } from './context/commentContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,10 +12,10 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ThreadProvider>
-      {/* <CommentProvider> */}
+      <CommentProvider>
         {/* <App /> */}
         <RouterProvider router={router}/>
-      {/* </CommentProvider> */}
+      </CommentProvider>
     </ThreadProvider>
   </React.StrictMode>
 );

@@ -43,7 +43,60 @@ body {
   background: #005fa3;
 }
 
-.create-thread {
+.thread-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+  gap: 1rem;
+}
+
+.thread-card {
+  background: #f0f4f8;
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #ccc;
+  transition: box-shadow 0.2s ease;
+}
+
+.thread-card:hover,
+.thread-card:focus {
+  box-shadow: 0 0 10px #0077cc;
+  outline: none;
+}
+
+.thread-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #0077cc;
+}
+
+.thread-detail {
+  padding: 1rem;
+  background: #f0f4f8;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.thread-detail h2 {
+  margin-top: 0;
+  color: #0077cc;
+}
+
+.comment-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.comment {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 3px;
+}
+
+.create-thread,
+.create-comment {
   background: #f0f4f8;
   padding: 1rem;
   border-radius: 5px;
@@ -51,7 +104,8 @@ body {
   max-width: 600px;
 }
 
-.create-thread label{
+.create-thread label,
+.create-comment label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: bold;
@@ -59,7 +113,8 @@ body {
 
 .create-thread input[type="text"],
 .create-thread select,
-.create-thread textarea {
+.create-thread textarea,
+.create-comment textarea {
   width: 100%;
   padding: 0.5rem;
   margin-top: 0.25rem;

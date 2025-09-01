@@ -12,19 +12,22 @@ const limitWords = (text: string, limit: number) => {
 
 // Tar emot en array av threads via props
 const ThreadList = () => {
-  const {threads} = useThread();
+  const { threads } = useThread();
   return (
-    <div>
+    <div className="thread-list">
       <h1>Alla trådar</h1>
-      
+
       {/* Loopar igenom alla threads och renderar varje tråd */}
       {threads.map((thread) => (
-        <div key={thread.id} style={{ borderBottom: "1px solid #ccc", padding: "10px 0" }}>
-          <Link to={`/thread/${thread.id}`} style={{ textDecoration: "none", color: "black" }}>
+        <div key={thread.id} className="thread-card">
+          <Link
+            to={`/thread/${thread.id}`}
+            style={{ textDecoration: "none", color: "black" }}
+          >
             <h1>{thread.title}</h1>
             <p>Category: {thread.category}</p>
             <p>Created by: {thread.creator.userName}</p>
-            <p>Date: {thread.creationDate}</p>
+            <p>Date: {new Date(thread.creationDate).toLocaleString()}</p>
             <p>{limitWords(thread.description, 20)}</p>
           </Link>
         </div>

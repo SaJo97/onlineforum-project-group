@@ -10,12 +10,12 @@ import { loadComments, saveComments } from "../data/storage";
 type CommentsContextType = {
   comments: Comments[];
   addComment: (comments: Comments) => void;
-}
+};
 
 const defaultState: CommentsContextType = {
   comments: [],
-  addComment: () => {}
-}
+  addComment: () => {},
+};
 
 export const CommentsContext = createContext<CommentsContextType>(defaultState);
 
