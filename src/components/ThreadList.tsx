@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
+import { useThread } from "../context/threadContext";
 
-interface ThreadListProps {
-  threads: Thread[];
-}
 // Hjälpfunktion som begränsar en text till ett visst antal ord
 // Om texten är längre än 'limit' ord, läggs "..." till i slutet
 const limitWords = (text: string, limit: number) => {
@@ -13,7 +11,8 @@ const limitWords = (text: string, limit: number) => {
 };
 
 // Tar emot en array av threads via props
-const ThreadList: React.FC<ThreadListProps> = ({ threads }) => {
+const ThreadList = () => {
+  const {threads} = useThread();
   return (
     <div>
       <h1>Alla trådar</h1>

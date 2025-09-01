@@ -1,9 +1,12 @@
-import CreateThread from "../components/CreateThread"
+import ThreadList from "../components/ThreadList"
+import { useThread } from "../context/threadContext"
+
 
 const Thread = () => {
+
   return (
     <div>
-      
+      <ThreadList />
     </div>
   )
 }

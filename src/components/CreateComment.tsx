@@ -1,24 +1,14 @@
-import {useState, useContext, FormEvent} from "react";
-import { CommentsContext } from "../context/commentContext";
-
-import { saveComments, loadComments } from "../data/storage";
-
-
-
-
+import {useState, FormEvent} from "react";
 
 interface CreateCommentProps {
   threadId: number;
-  creator: User;
+  currentUser: User;
+  addComment: (comment: Comments) => void;
 }
 
 
-const CreateComment = ({threadId, creator}: CreateCommentProps ) => {
+const CreateComment = ({threadId, currentUser, addComment}: CreateCommentProps ) => {
       const [content, setContent] = useState("");
-      const context = useContext(CommentsContext);
-
-      if(!context) return null;
-      const {addComment} = context;
 
       const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
@@ -27,14 +17,12 @@ const CreateComment = ({threadId, creator}: CreateCommentProps ) => {
         const newComment: Comments = {
           id: Date.now(),
           thread: threadId,
-          content,
-          creator,
+          content: content.trim(),
+          creator: currentUser,
         };
 
 
-        addComment(content, threadId, creator);
-        saveComments([...loadComments(), newComment]);
-
+        addComment(newComment);
         setContent("");
       };
 
